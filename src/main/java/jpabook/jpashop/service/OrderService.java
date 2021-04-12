@@ -26,15 +26,18 @@ public class OrderService {
         Member member = memberRepository.findOne(memberId);
         Item item = itemRepository.findOne(itemId);
 
-        // 배송정보 생성
+        // 배송정보 생성 cascade all 때문에 따로 save 안해줘도 됨
         Delivery delivery = new Delivery();
         delivery.setAddress(member.getAddress());
         delivery.setStatus(DeliveryStatus.READY);
 
-        // 주문상품 생성
+        // 주문상품 생성 cascade all 때문에 따로 save 안해줘도 됨
         OrderItem orderItem = OrderItem.createOrderItem(item,item.getPrice(),count);
+
+        // 주문 생성
         Order.createOrder(member,delivery,orderItem);
 
+        // 주문 저장
         Order order = Order.createOrder(member, delivery, orderItem);
 
         orderRepository.save(order);
