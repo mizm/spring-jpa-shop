@@ -26,9 +26,18 @@ public class OrderRepository {
     // 동적쿼리
     // 스트링 조합
     // jpa criteria -> jpql 을 코드로 짜는 것 sql이 보여지지 않아서 유지보수가 너 무 힘 듬
+    // querydsl 을 공부하자
     public List<Order> findAll(OrderSearch orderSearch) {
         return em.createQuery("select o from Order o join o.member m", Order.class)
                 .setMaxResults(1000) // 최대 1000건
+                .getResultList();
+    }
+
+    public List<Order> findAllWithMemberDelivery() {
+        // fetch join이 중요하다.
+        return em.createQuery("select o from Order o" +
+                " join fetch o.member m" +
+                " join fetch o.delivery d",Order.class)
                 .getResultList();
     }
 }
