@@ -21,6 +21,10 @@ import java.util.stream.Collectors;
  * order
  * order -> member
  * order -> delivery
+ * 추가
+ * xToMany
+ * order -> orderItems
+ * orderItems -> Item
  */
 @RestController
 @RequiredArgsConstructor
