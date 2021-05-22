@@ -49,6 +49,8 @@ class OrderServiceTest {
         assertEquals(1,getOrder.getOrderItems().size());
         assertEquals(10000*orderCount,getOrder.getTotalPrice());
         assertEquals(8,book.getStockQuantity());
+
+
     }
 
     @Test
@@ -98,4 +100,5 @@ class OrderServiceTest {
         em.persist(member);
         return member;
     }
+
 }

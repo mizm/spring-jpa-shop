@@ -2,6 +2,7 @@ package jpabook.jpashop.repository.order.query;
 
 import jpabook.jpashop.repository.order.simplequery.SimpleOrderQueryDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

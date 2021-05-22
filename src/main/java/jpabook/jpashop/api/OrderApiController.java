@@ -82,6 +82,7 @@ public class OrderApiController {
     }
     @GetMapping("/api/v6/orders")
     public List<OrderFlatDto> ordersV6() {
+        //중복제거가 필요하다.
         return orderQueryRepository.findAllByDto_flat();
     }
 
